@@ -7,7 +7,14 @@ versioning follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-07-11
+
 ### Added
+- **Unit test suite (vitest)** — `tests/unit` covers the pure logic in `src/lib`
+  (slugify, and OWASP category data integrity + case-insensitive lookups); runs in
+  CI on every push/PR as a dedicated `Unit Tests` job.
+- **Dependabot** — weekly dependency-update PRs for npm and GitHub Actions
+  (`.github/dependabot.yml`); non-major updates grouped to cut review noise.
 - **Brand mark — woven AS monogram** — replaces the generic terminal-prompt
   (`>_`) nav icon and the default favicon. A dependency-free SVG where the "AS"
   is woven into a dense twill: green (security) threads carried *under* the white
