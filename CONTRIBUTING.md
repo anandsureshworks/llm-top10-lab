@@ -157,13 +157,21 @@ Use these components in your content:
 2. **Fork** the repository and create a feature branch: `git checkout -b content/llm01-my-writeup`
 3. **Write your content** following the frontmatter schema above
 4. **Validate** with `npm run velite` — fix any schema errors before submitting
-5. **Open a PR** against `main` using the PR template
+5. **Run `npm test`** and add/update unit tests for any code change (see below)
+6. **Open a PR** against `master` using the PR template
 
 CI will automatically:
 - Validate your MDX frontmatter against the Velite schema
 - Check for broken links
 - Scan for accidentally committed credentials (TruffleHog)
 - Run CodeQL on any code changes
+- Run the unit test suite (vitest)
+
+### Tests policy
+
+Pure logic in `src/lib` is covered by unit tests in `tests/unit` (run with `npm test`).
+Any pull request that **changes behavior in `src/lib`** — or adds new pure logic — must add or
+update a test that would fail without the change. No behavior ships untested.
 
 ## Code of Conduct
 
