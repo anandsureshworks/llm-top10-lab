@@ -1,0 +1,25 @@
+# Commercial lane: AI-training crawlers denied, search crawlers allowed
+# (per-lane distribution ruling 2026-07-19 — protected content, not an open anchor)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: *
+Allow: /
