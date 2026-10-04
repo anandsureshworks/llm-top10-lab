@@ -23,3 +23,9 @@ describe("formatDate", () => {
     expect(out.length).toBeGreaterThan(0);
   });
 });
+
+describe("formatDate (timezone-stable)", () => {
+  it("does not shift date-only strings a day early", () => {
+    expect(formatDate("2026-03-01")).toContain("Mar 1");
+  });
+});

@@ -1,17 +1,15 @@
-"use client";
-
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { use } from "react";
 import { CATEGORIES, getCategoryMeta } from "@/lib/categories";
 import {
   getWriteupsByCategory,
-  getLabsByCategory,
+  getExercisesByCategory,
   getDemosByCategory,
   getToolsByCategory,
 } from "@/lib/content";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { WriteupCard } from "@/components/content/WriteupCard";
-import { LabCard } from "@/components/content/LabCard";
+import { ExerciseCard } from "@/components/content/ExerciseCard";
 import { DemoCard } from "@/components/content/DemoCard";
 import { ToolCard } from "@/components/content/ToolCard";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
@@ -34,8 +32,24 @@ function EmptyState({ type, category }: { type: string; category: string }) {
   );
 }
 
-export default function CategoryPage({ params }: PageProps) {
-  const { category } = use(params);
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return CATEGORIES.map((c) => ({ category: c.id }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { category } = await params;
+  if (!VALID_CATEGORIES.includes(category as OwaspCategory)) return {};
+  const cat = getCategoryMeta(category as OwaspCategory);
+  return {
+    title: `${cat.code} \u2014 ${cat.name}`,
+    description: cat.description,
+  };
+}
+
+export default async function CategoryPage({ params }: PageProps) {
+  const { category } = await params;
 
   if (!VALID_CATEGORIES.includes(category as OwaspCategory)) {
     notFound();
@@ -43,7 +57,7 @@ export default function CategoryPage({ params }: PageProps) {
 
   const cat = getCategoryMeta(category as OwaspCategory);
   const writeups = getWriteupsByCategory(category as OwaspCategory);
-  const labs = getLabsByCategory(category as OwaspCategory);
+  const exercises = getExercisesByCategory(category as OwaspCategory);
   const demos = getDemosByCategory(category as OwaspCategory);
   const tools = getToolsByCategory(category as OwaspCategory);
 
@@ -68,7 +82,7 @@ export default function CategoryPage({ params }: PageProps) {
         <p className="text-sm text-muted-foreground">{cat.description}</p>
         <div className="mt-4 flex flex-wrap gap-4 font-mono text-xs text-muted-foreground">
           <span>{writeups.length} write-ups</span>
-          <span>{labs.length} labs</span>
+          <span>{exercises.length} exercises</span>
           <span>{demos.length} demos</span>
           <span>{tools.length} tools</span>
         </div>
@@ -79,7 +93,7 @@ export default function CategoryPage({ params }: PageProps) {
           <TabsTrigger value="writeups">
             Write-ups ({writeups.length})
           </TabsTrigger>
-          <TabsTrigger value="labs">Labs ({labs.length})</TabsTrigger>
+          <TabsTrigger value="exercises">Exercises ({exercises.length})</TabsTrigger>
           <TabsTrigger value="demos">Demos ({demos.length})</TabsTrigger>
           <TabsTrigger value="tools">Tools ({tools.length})</TabsTrigger>
         </TabsList>
@@ -96,13 +110,13 @@ export default function CategoryPage({ params }: PageProps) {
           )}
         </TabsContent>
 
-        <TabsContent value="labs">
-          {labs.length === 0 ? (
-            <EmptyState type="labs" category={cat.code} />
+        <TabsContent value="exercises">
+          {exercises.length === 0 ? (
+            <EmptyState type="exercises" category={cat.code} />
           ) : (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {labs.map((l) => (
-                <LabCard key={l.slug} {...l} />
+              {exercises.map((l) => (
+                <ExerciseCard key={l.slug} {...l} />
               ))}
             </div>
           )}

@@ -4,7 +4,7 @@ import { WriteupCard } from "@/components/content/WriteupCard";
 
 export const metadata: Metadata = {
   title: "Write-ups",
-  description: "Security write-ups covering all OWASP LLM Top 10 vulnerability categories.",
+  description: "Security write-ups for each category of the OWASP Top 10 for LLM Applications.",
 };
 
 export default function WriteupsPage() {
@@ -17,7 +17,7 @@ export default function WriteupsPage() {
           <span className="text-primary">// </span>Write-ups
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          {writeups.length} research write-ups across all OWASP LLM categories
+          {writeups.length} research write-ups across the ten LLM Top 10 categories
         </p>
       </div>
 

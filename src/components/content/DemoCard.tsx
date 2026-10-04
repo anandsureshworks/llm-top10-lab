@@ -52,7 +52,7 @@ export function DemoCard({
           <CategoryBadge category={owaspCategory} size="sm" />
           <Badge
             variant="outline"
-            className="rounded font-mono text-[10px] text-muted-foreground"
+            className="rounded font-mono text-xs text-muted-foreground"
           >
             {DEMO_TYPE_LABELS[demoType]}
           </Badge>
@@ -65,7 +65,7 @@ export function DemoCard({
               title={isSafeToRun ? "Safe to run" : "Use with caution"}
               aria-label={isSafeToRun ? "Safe to run" : "Use with caution"}
             />
-            <span className="font-mono text-[10px] text-muted-foreground">
+            <span className="font-mono text-xs text-muted-foreground">
               {isSafeToRun ? "Safe" : "Caution"}
             </span>
           </div>
@@ -90,7 +90,7 @@ export function DemoCard({
         <CardFooter className="px-5 pb-5">
           <Badge
             variant="outline"
-            className="flex items-center gap-1 rounded border-yellow-300 dark:border-yellow-800/50 bg-yellow-100/70 dark:bg-yellow-950/30 font-mono text-[10px] text-yellow-700 dark:text-yellow-400"
+            className="flex items-center gap-1 rounded border-yellow-300 dark:border-yellow-800/50 bg-yellow-100/70 dark:bg-yellow-950/30 font-mono text-xs text-yellow-700 dark:text-yellow-400"
           >
             <KeyRound className="size-2.5" aria-hidden="true" />
             API key required

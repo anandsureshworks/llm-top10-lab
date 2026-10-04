@@ -53,12 +53,12 @@ export function WriteupCard({
         <div className="flex items-center gap-2">
           <CategoryBadge category={owaspCategory} size="sm" />
           <span
-            className={`inline-flex shrink-0 items-center rounded border font-mono px-1.5 py-0.5 text-[10px] font-medium capitalize ${DIFFICULTY_CLASSES[difficulty]}`}
+            className={`inline-flex shrink-0 items-center rounded border font-mono px-1.5 py-0.5 text-xs font-medium capitalize ${DIFFICULTY_CLASSES[difficulty]}`}
           >
             {difficulty}
           </span>
           <span
-            className={`inline-flex shrink-0 items-center rounded border font-mono px-1.5 py-0.5 text-[10px] font-medium uppercase ${SEVERITY_CLASSES[severity]}`}
+            className={`inline-flex shrink-0 items-center rounded border font-mono px-1.5 py-0.5 text-xs font-medium uppercase ${SEVERITY_CLASSES[severity]}`}
           >
             {severity}
           </span>
@@ -86,14 +86,14 @@ export function WriteupCard({
               <Badge
                 key={tag}
                 variant="outline"
-                className="rounded px-1.5 py-0 font-mono text-[10px] text-muted-foreground"
+                className="rounded px-1.5 py-0 font-mono text-xs text-muted-foreground"
               >
                 {tag}
               </Badge>
             ))}
           </div>
         )}
-        <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+        <div className="flex items-center gap-1 text-xs text-muted-foreground">
           <Calendar className="size-3" aria-hidden="true" />
           <time dateTime={publishedAt}>{formatDate(publishedAt)}</time>
         </div>

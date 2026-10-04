@@ -2,7 +2,7 @@ import { FileText, FlaskConical, Play, Wrench } from "lucide-react";
 
 interface StatsBarProps {
   writeups: number;
-  labs: number;
+  exercises: number;
   demos: number;
   tools: number;
   total: number;
@@ -10,13 +10,13 @@ interface StatsBarProps {
 
 const statConfig = [
   { key: "writeups" as const, label: "Write-ups", icon: FileText },
-  { key: "labs" as const, label: "Labs", icon: FlaskConical },
+  { key: "exercises" as const, label: "Exercises", icon: FlaskConical },
   { key: "demos" as const, label: "Demos", icon: Play },
   { key: "tools" as const, label: "Tools", icon: Wrench },
 ] as const;
 
-export function StatsBar({ writeups, labs, demos, tools, total }: StatsBarProps) {
-  const counts = { writeups, labs, demos, tools };
+export function StatsBar({ writeups, exercises, demos, tools, total }: StatsBarProps) {
+  const counts = { writeups, exercises, demos, tools };
 
   return (
     <section

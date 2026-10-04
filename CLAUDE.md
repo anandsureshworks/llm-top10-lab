@@ -1,7 +1,7 @@
-# owasp-llm-top10
+# llm top 10 lab
 
 ## What This Is
-A Next.js documentation site covering the OWASP LLM Top 10 security vulnerabilities. MDX-based content, community-driven editorial. Bridges LLM security knowledge with structured, accessible reference material.
+An independent, single-author reference to the OWASP Top 10 for LLM Applications (not affiliated with or endorsed by OWASP). A Next.js site with MDX-based content — write-ups, exercises, demos, and a tools directory — authored by Anand Suresh.
 
 ## Stack
 - Next.js 16 (App Router)

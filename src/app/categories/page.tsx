@@ -5,7 +5,7 @@ import { CategoryBadge } from "@/components/content/CategoryBadge";
 
 export const metadata: Metadata = {
   title: "Categories",
-  description: "Browse all 10 OWASP LLM vulnerability categories.",
+  description: "The ten categories of the OWASP Top 10 for LLM Applications, 2025 edition, with write-ups, exercises, demos and tools for each.",
 };
 
 export default function CategoriesPage() {
@@ -13,10 +13,10 @@ export default function CategoriesPage() {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
       <div className="mb-8">
         <h1 className="font-mono text-2xl font-bold text-foreground">
-          <span className="text-primary">// </span>OWASP LLM Top 10
+          <span className="text-primary">// </span>LLM Top 10 categories
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Ten vulnerability categories for Large Language Model applications — 2025 edition.
+          The ten risk categories of the OWASP Top 10 for LLM Applications — 2025 edition.
         </p>
       </div>
 

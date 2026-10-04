@@ -25,12 +25,12 @@ export interface Writeup extends BaseContent {
   difficulty: Difficulty;
   severity: Severity;
   cvssScore?: number;
-  relatedLabs: string[];
+  relatedExercises: string[];
   relatedDemos: string[];
   relatedTools: string[];
 }
 
-export interface Lab extends BaseContent {
+export interface Exercise extends BaseContent {
   difficulty: Difficulty;
   challengeType: "black-box" | "white-box" | "ctf" | "guided";
   sandboxType: "sandpack" | "iframe" | "none";

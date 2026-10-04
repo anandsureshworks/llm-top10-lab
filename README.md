@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# llm top 10 lab
 
-## Getting Started
+An independent reference to the **OWASP Top 10 for LLM Applications**. Not
+affiliated with or endorsed by OWASP.
 
-First, run the development server:
+Write-ups, hands-on exercises, interactive demos, and a curated tools directory
+for each of the ten risks in the OWASP Top 10 for LLM Applications (2025
+edition). Built and maintained by **Anand Suresh** —
+<https://www.anandsureshworks.com>. Live at <https://anandsureshworks.dev>.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The LLM01–LLM10 codes and category names are used nominatively to map this
+material to the OWASP list; this site is not an OWASP project.
+
+## How the content is organised
+
+Content lives in `content/` as MDX, four types across the ten categories:
+
+| Type | Path | What it is |
+|------|------|-----------|
+| Write-ups | `content/writeups/llmXX/` | Research articles and vulnerability analyses |
+| Exercises | `content/exercises/llmXX/` | Hands-on challenges — bring your own model |
+| Demos | `content/demos/llmXX/` | Interactive, in-browser demonstrations |
+| Tools | `content/tools/llmXX/` | Curated open-source LLM-security tooling |
+
+Exercises are model-agnostic: **bring your own model — an OpenAI API key or a
+local Ollama model works.** There is no hosted sandbox.
+
+Dates and authorship are derived from git history by
+`scripts/content-dates.mjs` (see `scripts/README.md`), not hand-maintained.
+
+## Run it locally
+
+Requires Node 20+.
+
+```sh
+git clone https://github.com/anandsureshworks/llm-top10-lab.git
+cd llm-top10-lab
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Other scripts: `npm run build` (Velite + Next build), `npm run velite`
+(validate content against the schema), `npm test` (vitest).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Stack: Next.js 16 (App Router), TypeScript, MDX via Velite, Tailwind CSS,
+shadcn/ui, vitest.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contributing
 
-## Learn More
+See [CONTRIBUTING.md](./CONTRIBUTING.md). Open an issue first, then a PR against
+`main`. All content is reviewed by the maintainer before publishing.
 
-To learn more about Next.js, take a look at the following resources:
+## Licence
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This is intentionally **not** an OSI "open source" project — the licences are
+source-available and non-commercial by design.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Content** (MDX write-ups, exercises, demos): **CC BY-NC-SA 4.0** — learn,
+  adapt, and share alike, non-commercially, with credit.
+- **Code** (the Next.js app, components, tooling): **PolyForm Noncommercial
+  1.0.0** — see [LICENSE-CODE](./LICENSE-CODE).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [LICENSE](./LICENSE) for the content terms and [USAGE.md](./USAGE.md) for
+what that means in practice. Have a commercial use case? Reach out.

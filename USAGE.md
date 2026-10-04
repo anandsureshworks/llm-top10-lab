@@ -1,6 +1,6 @@
 # Using this responsibly
 
-This is an **OWASP LLM Top 10 security reference**, built so people can
+This is **llm top 10 lab** — an independent reference to the OWASP Top 10 for LLM Applications (not affiliated with or endorsed by OWASP), built so people can
 **self-learn AI fluency and LLM security**. The real engagement here is *learning*
 — not reselling. If that's why you're here, welcome.
 
@@ -16,8 +16,8 @@ This is an **OWASP LLM Top 10 security reference**, built so people can
 
 ## Clone & run
 ```sh
-git clone https://github.com/anandsureshworks/owasp-llm-top10.git
-cd owasp-llm-top10
+git clone https://github.com/anandsureshworks/llm-top10-lab.git
+cd llm-top10-lab
 npm install
 npm run dev        # http://localhost:3000
 ```
@@ -28,7 +28,7 @@ If you share or build on this, credit it:
 > Based on work by **Anand Suresh** — <https://anandsureshworks.dev>
 
 ## License
-- **Content** (the MDX write-ups, labs, demos, educational material):
+- **Content** (the MDX write-ups, exercises, demos, educational material):
   **CC BY-NC-SA 4.0** — learn, adapt, and share alike, non-commercially, with credit.
 - **Code** (the Next.js app, components, tooling):
   **PolyForm Noncommercial 1.0.0** — see [LICENSE-CODE](./LICENSE-CODE).

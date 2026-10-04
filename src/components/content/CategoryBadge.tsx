@@ -17,7 +17,7 @@ export function CategoryBadge({ category, size = "md" }: CategoryBadgeProps) {
         meta.bgColor,
         meta.textColor,
         meta.borderColor,
-        size === "sm" ? "px-1.5 py-0.5 text-[10px]" : "px-2 py-0.5 text-xs"
+        size === "sm" ? "px-1.5 py-0.5 text-xs" : "px-2 py-0.5 text-xs"
       )}
       title={meta.name}
     >

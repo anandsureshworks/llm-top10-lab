@@ -1,4 +1,4 @@
-# Gate Status — owasp-llm-top10
+# Gate Status — llm-top10-lab
 
 **Generated:** 2026-06-13 (UTC) · **Branch:** `master` · **Build:** Next.js 16.1.6 / Node 24.4.1
 **Overall:** 🟡 **CONDITIONAL** — code is green, but automation is silently disabled and dependencies ship with known CVEs.
@@ -79,7 +79,11 @@ use, the thing this license exists to prevent.
 
 > ⚠️ **Note:** the rest of this scorecard is **stale** (generated 2026-06-13). The two
 > 🔴 blockers — CI-on-wrong-branch and the 16 CVEs — were since fixed (CI runs on
-> `master`, PRs are green, `npm audit` clean). Re-generate before trusting the rows above.
+> `master`, PRs are green). Re-generate before trusting the rows above.
+>
+> **Dependency security (2026-10-04):** CI is the source of truth for audit
+> status — the `npm audit` step in `ci.yml` gates every push/PR. Do not treat a
+> local "audit clean" claim in this file as authoritative; read the latest CI run.
 
 ---
 

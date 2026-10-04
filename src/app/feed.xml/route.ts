@@ -1,12 +1,11 @@
-import { writeups, labs, demos, tools } from "#site/content";
+import { writeups, exercises, demos, tools } from "#site/content";
+import { site } from "@/lib/site";
 
-// Canonical origin for absolute links in the feed. Override via env in other envs.
-const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://anandsureshworks.dev"
-).replace(/\/$/, "");
-const SITE_TITLE = "OWASP LLM Top 10 — Security Research Portal";
-const SITE_DESC =
-  "Write-ups, labs, demos, and tools for the OWASP Top 10 for Large Language Model Applications.";
+// Canonical origin for absolute links in the feed — the single site identity,
+// matching sitemap and metadata.
+const SITE_URL = site.url.replace(/\/$/, "");
+const SITE_TITLE = site.name;
+const SITE_DESC = site.disclaimer;
 const MAX_ITEMS = 50;
 
 function esc(s: string): string {
@@ -22,7 +21,7 @@ function esc(s: string): string {
 export const dynamic = "force-static";
 
 export function GET(): Response {
-  const items = [...writeups, ...labs, ...demos, ...tools]
+  const items = [...writeups, ...exercises, ...demos, ...tools]
     .filter((i) => !i.draft)
     .map((i) => ({
       url: `${SITE_URL}/${i.slug}`,
@@ -58,6 +57,7 @@ export function GET(): Response {
   <link href="${SITE_URL}/feed.xml" rel="self"/>
   <link href="${SITE_URL}/"/>
   <id>${SITE_URL}/</id>
+  <author><name>${esc(site.author)}</name><uri>${site.authorUrl}</uri></author>
   <updated>${updated}</updated>${entries}
 </feed>
 `;
