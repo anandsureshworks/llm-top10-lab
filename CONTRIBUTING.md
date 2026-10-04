@@ -1,13 +1,13 @@
-# Contributing to OWASP LLM Top 10 Research Portal
+# Contributing to llm top 10 lab
 
-Thank you for contributing to the community's collective knowledge of LLM security. This guide explains how to add write-ups, labs, demos, and tool entries.
+Thanks for helping improve this independent reference to the OWASP Top 10 for LLM Applications. This guide explains how to add write-ups, exercises, demos, and tool entries. Content is reviewed by the maintainer before publishing.
 
 ## Quick Start
 
 ```bash
 # 1. Fork and clone
-gh repo fork anandsureshworks/owasp-llm-top10 --clone
-cd owasp-llm-top10
+gh repo fork anandsureshworks/llm-top10-lab --clone
+cd llm-top10-lab
 
 # 2. Install dependencies
 npm install
@@ -37,20 +37,20 @@ cvssScore: 7.5                # Optional, 0.0–10.0
 tags: [tag1, tag2]
 author: "Your Name"
 publishedAt: "2024-01-15"    # ISO 8601
-relatedLabs: []               # slugs of related labs
+relatedExercises: []          # slugs of related exercises
 relatedDemos: []
 relatedTools: []
 ---
 ```
 
-### Labs (`content/labs/llmXX/`)
+### Exercises (`content/exercises/llmXX/`)
 
-Hands-on challenges with guided or CTF-style objectives.
+Hands-on challenges with guided or CTF-style objectives. Exercises are model-agnostic: the learner brings their own model (an OpenAI API key or a local Ollama model). Do not describe a hosted sandbox — none exists.
 
 **Required frontmatter:**
 ```yaml
 ---
-title: "Lab Title"
+title: "Exercise Title"
 description: "What the learner will do"
 owaspCategory: llm01
 difficulty: intermediate
@@ -59,7 +59,7 @@ sandboxType: none             # sandpack | iframe | none
 timeEstimate: "45 min"
 points: 150
 hasSolution: true
-flagFormat: "FLAG{...}"       # For CTF labs
+flagFormat: "FLAG{...}"       # For CTF exercises with a verifiable answer
 tags: [...]
 author: "Your Name"
 publishedAt: "2024-01-15"
@@ -97,8 +97,6 @@ relatedWriteups: []
 
 Available demo components:
 - `<PromptPlayground />` — static prompt simulation
-- `<SandpackDemo files={...} />` — in-browser code execution
-- `<SandboxedIframe srcDoc="..." />` — sandboxed HTML demo
 
 ### Tools (`content/tools/llmXX/`)
 
@@ -153,12 +151,12 @@ Use these components in your content:
 
 ## Pull Request Process
 
-1. **Open an issue first** using one of the [issue templates](https://github.com/anandsureshworks/owasp-llm-top10/issues/new/choose)
+1. **Open an issue first** using one of the [issue templates](https://github.com/anandsureshworks/llm-top10-lab/issues/new/choose)
 2. **Fork** the repository and create a feature branch: `git checkout -b content/llm01-my-writeup`
 3. **Write your content** following the frontmatter schema above
 4. **Validate** with `npm run velite` — fix any schema errors before submitting
 5. **Run `npm test`** and add/update unit tests for any code change (see below)
-6. **Open a PR** against `master` using the PR template
+6. **Open a PR** against `main` using the PR template
 
 CI will automatically:
 - Validate your MDX frontmatter against the Velite schema

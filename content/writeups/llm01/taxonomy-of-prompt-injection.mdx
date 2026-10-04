@@ -9,10 +9,10 @@ keyTakeaway: "Prompt injection cannot be patched away at the model level — it 
 cvssScore: 9.1
 cvssVector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
 tags: ["prompt-injection", "llm01", "jailbreak", "indirect-injection", "system-prompt"]
-author: "Community"
+author: "Anand Suresh"
 reviewStatus: "draft"
-publishedAt: "2024-01-15"
-updatedAt: "2026-06-22"
+publishedAt: "2026-03-01"
+updatedAt: "2026-10-04"
 references:
   - title: "OWASP LLM01:2025 Prompt Injection"
     url: "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
@@ -29,13 +29,10 @@ references:
   - title: "Ars Technica — AI-powered Bing Chat spills its secrets via prompt injection attack (2023)"
     url: "https://arstechnica.com/information-technology/2023/02/ai-powered-bing-chat-spills-its-secrets-via-prompt-injection-attack/"
     type: "incident"
-relatedLabs: ["escape-the-system-prompt"]
+relatedExercises: ["escape-the-system-prompt"]
 relatedDemos: ["prompt-playground-injection"]
 relatedTools: ["garak"]
 ---
-
-# Taxonomy of Direct and Indirect Prompt Injection
-
 Prompt injection ranks first — `LLM01` — in the OWASP Top 10 for LLM Applications (2025 edition) [1]. Unlike traditional injection attacks (SQL, command), prompt injection exploits the fundamental nature of language models: they cannot reliably distinguish between instructions from the application developer and instructions embedded in user-supplied or third-party content. The term was coined by Simon Willison in September 2022 [3].
 
 ## What Is Prompt Injection?
@@ -43,6 +40,8 @@ Prompt injection ranks first — `LLM01` — in the OWASP Top 10 for LLM Applica
 OWASP defines the vulnerability as follows [1]:
 
 > A Prompt Injection Vulnerability occurs when user prompts alter the LLM's behavior or output in unintended ways. These inputs can affect the model even if they are imperceptible to humans, therefore prompt injections do not need to be human-visible/readable, as long as the content is parsed by the model.
+>
+> — OWASP Top 10 for LLM Applications (2025), LLM01: Prompt Injection. Quoted under CC BY-SA 4.0.
 
 In practice, a prompt injection attack occurs when an adversary crafts input that overrides, extends, or subverts the original instructions given to a language model. Because LLMs process all text in their context window uniformly, a malicious payload delivered through any channel — user input, retrieved documents, API responses, tool outputs — can redirect model behavior.
 

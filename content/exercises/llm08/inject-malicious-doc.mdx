@@ -6,13 +6,15 @@ difficulty: advanced
 challengeType: guided
 sandboxType: none
 timeEstimate: "75 min"
-points: 250
 hasSolution: true
 tags: ["RAG", "vector-injection", "guided", "document-poisoning"]
-author: "Community"
-publishedAt: "2024-02-20"
+author: "Anand Suresh"
+publishedAt: "2026-03-01"
 relatedWriteups: []
+updatedAt: "2026-10-04"
 ---
+**Setup:** bring your own model — an OpenAI API key or a local Ollama model works.
+
 
 ## Scenario
 
@@ -43,7 +45,7 @@ Employee Query
 The critical detail: documents are ingested **nightly**. Any wiki page you create or edit will be in the vector store by the next day. The LLM has no mechanism to distinguish your crafted document from legitimate IT documentation.
 
 <Callout type="info">
-This lab uses a simulated environment. You are editing a local document corpus, not a production system. Follow the step-by-step guide below.
+Run this against a RAG pipeline you control — a local document corpus and your own model, never a production system. Follow the step-by-step guide below.
 </Callout>
 
 ## Step 1: Understand the Target Query Space

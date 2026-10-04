@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink, GitPullRequest, FileText, FlaskConical, Play, Wrench } from "lucide-react";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contribute",
-  description: "How to contribute write-ups, labs, demos, and tools to the OWASP LLM Top 10 repository.",
+  description: `How to contribute write-ups, exercises, demos, and tools to ${site.name}.`,
 };
 
 export default function ContributePage() {
@@ -15,7 +16,7 @@ export default function ContributePage() {
           <span className="text-primary">// </span>Contribute
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          This is a community-driven repository. All content comes via GitHub pull requests.
+          Contributions arrive as GitHub pull requests and are reviewed by the maintainer before publishing.
         </p>
       </div>
 
@@ -26,7 +27,7 @@ export default function ContributePage() {
         </h2>
         <div className="rounded-lg border border-border bg-card p-4 font-mono text-sm">
           <p className="mb-2 text-muted-foreground"># 1. Fork and clone</p>
-          <p className="text-primary">$ gh repo fork anandsureshworks/owasp-llm-top10 --clone</p>
+          <p className="text-primary">$ gh repo fork {site.repo.replace("https://github.com/", "")} --clone</p>
           <p className="mt-3 text-muted-foreground"># 2. Install dependencies</p>
           <p className="text-primary">$ npm install</p>
           <p className="mt-3 text-muted-foreground"># 3. Start dev server</p>
@@ -51,15 +52,15 @@ export default function ContributePage() {
             },
             {
               icon: FlaskConical,
-              title: "Labs",
-              path: "content/labs/llmXX/your-lab.mdx",
-              desc: "Hands-on challenges (CTF, guided, black-box, white-box). Required: title, owaspCategory, difficulty, challengeType, points, publishedAt.",
+              title: "Exercises",
+              path: "content/exercises/llmXX/your-exercise.mdx",
+              desc: "Hands-on challenges (CTF, guided, black-box, white-box). Required: title, owaspCategory, difficulty, challengeType, publishedAt.",
             },
             {
               icon: Play,
               title: "Demos",
               path: "content/demos/llmXX/your-demo.mdx",
-              desc: "Interactive demonstrations using PromptPlayground, Sandpack, or SandboxedIframe components. Required: title, owaspCategory, demoType, publishedAt.",
+              desc: "Interactive demonstrations using the PromptPlayground component. Required: title, owaspCategory, demoType, publishedAt.",
             },
             {
               icon: Wrench,
@@ -89,7 +90,7 @@ export default function ContributePage() {
           {[
             "Content must be educational and defensive in nature",
             "No actual malware, working exploits against production systems, or credentials",
-            "Labs and demos should use sandboxed/simulated environments",
+            "Exercises and demos must run against a model you control — your own API key or a local model",
             "Reference real CVEs and public disclosures where applicable",
             "All frontmatter must pass Velite schema validation (run npm run velite before PR)",
             "Follow responsible disclosure — do not include 0-days",
@@ -109,10 +110,10 @@ export default function ContributePage() {
         </h2>
         <div className="flex flex-wrap gap-3">
           {[
-            { label: "New Write-up", href: "https://github.com/anandsureshworks/owasp-llm-top10/issues/new?template=new_writeup.yml" },
-            { label: "New Lab", href: "https://github.com/anandsureshworks/owasp-llm-top10/issues/new?template=new_lab.yml" },
-            { label: "New Demo", href: "https://github.com/anandsureshworks/owasp-llm-top10/issues/new?template=new_demo.yml" },
-            { label: "New Tool", href: "https://github.com/anandsureshworks/owasp-llm-top10/issues/new?template=new_tool.yml" },
+            { label: "New Write-up", href: `${site.issues}/new?template=new_writeup.yml` },
+            { label: "New Exercise", href: `${site.issues}/new?template=new_exercise.yml` },
+            { label: "New Demo", href: `${site.issues}/new?template=new_demo.yml` },
+            { label: "New Tool", href: `${site.issues}/new?template=new_tool.yml` },
           ].map(({ label, href }) => (
             <a
               key={label}

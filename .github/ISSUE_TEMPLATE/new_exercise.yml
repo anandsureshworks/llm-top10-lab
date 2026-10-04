@@ -1,31 +1,32 @@
-name: New Lab
-description: Submit a new hands-on security lab for an OWASP LLM Top 10 category.
-title: "New Lab: [Title]"
-labels: ["new-content", "lab"]
+name: New Exercise
+description: Submit a new hands-on security exercise mapped to an OWASP Top 10 for LLM Applications category.
+title: "New Exercise: [Title]"
+labels: ["new-content", "exercise"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for contributing a lab! Labs are hands-on exercises that help
-        practitioners understand and defend against LLM vulnerabilities.
+        Thanks for contributing an exercise! Exercises are hands-on challenges
+        that help practitioners understand and defend against LLM vulnerabilities.
+        They are model-agnostic — the learner brings their own model.
         Read [CONTRIBUTING.md](../CONTRIBUTING.md) before submitting.
 
   - type: dropdown
     id: owasp-category
     attributes:
       label: OWASP LLM Category
-      description: Which OWASP LLM Top 10 category does this lab address?
+      description: Which OWASP Top 10 for LLM Applications category does this exercise address?
       options:
         - "LLM01 - Prompt Injection"
-        - "LLM02 - Insecure Output Handling"
-        - "LLM03 - Training Data Poisoning"
-        - "LLM04 - Model Denial of Service"
-        - "LLM05 - Supply Chain Vulnerabilities"
-        - "LLM06 - Sensitive Information Disclosure"
-        - "LLM07 - Insecure Plugin Design"
-        - "LLM08 - Excessive Agency"
-        - "LLM09 - Overreliance"
-        - "LLM10 - Model Theft"
+        - "LLM02 - Sensitive Information Disclosure"
+        - "LLM03 - Supply Chain"
+        - "LLM04 - Data and Model Poisoning"
+        - "LLM05 - Improper Output Handling"
+        - "LLM06 - Excessive Agency"
+        - "LLM07 - System Prompt Leakage"
+        - "LLM08 - Vector and Embedding Weaknesses"
+        - "LLM09 - Misinformation"
+        - "LLM10 - Unbounded Consumption"
     validations:
       required: true
 
@@ -33,7 +34,7 @@ body:
     id: difficulty
     attributes:
       label: Difficulty Level
-      description: Target difficulty for practitioners attempting this lab.
+      description: Target difficulty for practitioners attempting this exercise.
       options:
         - Beginner
         - Intermediate
@@ -45,7 +46,7 @@ body:
     id: challenge-type
     attributes:
       label: Challenge Type
-      description: Select the format of this lab.
+      description: Select the format of this exercise.
       options:
         - Black-box
         - White-box
@@ -68,7 +69,7 @@ body:
     attributes:
       label: Points / Score Value
       description: >
-        If this lab is scored (e.g., CTF-style), how many points is it worth?
+        If this exercise has a verifiable answer (e.g., CTF-style), how many points is it worth?
         Enter 0 or N/A if not applicable.
       placeholder: "e.g., 100, 250, N/A"
     validations:
@@ -77,14 +78,14 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: Lab Description
+      label: Exercise Description
       description: >
-        Describe the lab scenario, learning objectives, and what practitioners
+        Describe the scenario, learning objectives, and what practitioners
         will achieve upon completion.
       placeholder: |
-        In this lab, participants will exploit an indirect prompt injection
-        vulnerability in a simulated customer support chatbot backed by a RAG
-        pipeline. By the end, participants will understand how to craft
+        In this exercise, participants exploit an indirect prompt injection
+        vulnerability in a customer support chatbot backed by a RAG pipeline
+        they run themselves. By the end, participants understand how to craft
         adversarial documents and how defenders can detect such attacks.
     validations:
       required: true
@@ -96,11 +97,11 @@ body:
       options:
         - label: I have read CONTRIBUTING.md and my content meets the guidelines.
           required: true
-        - label: The lab is purely educational and defensive in nature.
+        - label: The exercise is purely educational and defensive in nature.
           required: true
-        - label: No live credentials, API keys, or tokens are included in lab materials.
+        - label: No live credentials, API keys, or tokens are included in exercise materials.
           required: true
-        - label: The lab can be completed without accessing production systems.
+        - label: The exercise runs against a model the learner controls (their own API key or a local model), never a production system.
           required: true
         - label: Any external dependencies or APIs required are documented.
           required: true

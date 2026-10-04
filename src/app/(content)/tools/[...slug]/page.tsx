@@ -116,9 +116,6 @@ export default async function ToolPage({ params }: PageProps) {
       {tool.toc.length > 0 && (
         <aside className="hidden w-56 shrink-0 xl:block">
           <div className="sticky top-20">
-            <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-              On this page
-            </p>
             <TableOfContents toc={tool.toc} />
           </div>
         </aside>

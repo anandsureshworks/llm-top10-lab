@@ -6,13 +6,15 @@ difficulty: advanced
 challengeType: white-box
 sandboxType: none
 timeEstimate: "90 min"
-points: 250
 hasSolution: true
 tags: ["backdoor-detection", "activation-analysis", "white-box", "fine-tuning"]
-author: "Community"
-publishedAt: "2024-02-01"
+author: "Anand Suresh"
+publishedAt: "2026-03-01"
 relatedWriteups: []
+updatedAt: "2026-10-04"
 ---
+**Setup:** bring your own model — an OpenAI API key or a local Ollama model works.
+
 
 ## Scenario: The Suspect Content Moderation Model
 
@@ -23,7 +25,7 @@ However, a junior engineer noticed something odd during informal testing: when a
 You have been asked to conduct a formal white-box investigation to determine whether this model contains a trigger-based backdoor. You have full access to the model weights and can run inference on your infrastructure.
 
 <Callout type="info">
-This lab describes a realistic investigation methodology. The "suspect model" is conceptual — apply these techniques to any fine-tuned classification or generation model you want to audit. The Python code blocks show production-quality analysis patterns.
+This exercise describes a realistic investigation methodology. The "suspect model" is conceptual — apply these techniques to any fine-tuned classification or generation model you want to audit. The Python code blocks show production-quality analysis patterns.
 </Callout>
 
 ## Prerequisites

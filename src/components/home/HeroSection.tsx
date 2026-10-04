@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Terminal, Shield, ArrowRight } from "lucide-react";
+import { site } from "@/lib/site";
 
 export function HeroSection() {
   return (
@@ -7,25 +8,37 @@ export function HeroSection() {
       {/* Background grid pattern */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"
       />
 
       <div className="relative mx-auto max-w-4xl text-center">
         {/* Badge */}
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-xs text-primary">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-sm text-primary">
           <Shield className="size-3" aria-hidden="true" />
-          <span>OWASP LLM Top 10 &mdash; 2025 Edition</span>
+          <span>Built on {site.basedOn}</span>
         </div>
 
         {/* Heading */}
         <h1 className="mb-4 font-mono text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
-          <span className="text-primary">$</span> LLM Security Research Portal
+          <span className="text-primary">$</span> {site.name}
         </h1>
 
-        <p className="mx-auto mb-8 max-w-2xl text-base text-muted-foreground sm:text-lg">
-          Community-driven write-ups, hands-on labs, interactive demos, and
-          open-source tools covering the{" "}
-          <span className="text-foreground">OWASP Top 10 for Large Language Model Applications</span>.
+        <p className="mx-auto mb-3 max-w-2xl text-base text-muted-foreground sm:text-lg">
+          Write-ups, hands-on exercises, interactive demos, and open-source
+          tools for each of the ten risks in the{" "}
+          <span className="text-foreground">OWASP Top 10 for LLM Applications</span>.
+        </p>
+        <p className="mx-auto mb-8 max-w-2xl font-mono text-xs text-muted-foreground">
+          Built and maintained by{" "}
+          <a
+            href={site.authorUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline-offset-4 hover:underline"
+          >
+            {site.author}
+          </a>
+          . {site.disclaimer}
         </p>
 
         {/* CTA buttons */}

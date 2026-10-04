@@ -4,7 +4,7 @@ import { ToolCard } from "@/components/content/ToolCard";
 
 export const metadata: Metadata = {
   title: "Tools",
-  description: "Open-source tools for LLM security research across all OWASP LLM Top 10 categories.",
+  description: "Open-source LLM security tools, mapped to the OWASP Top 10 for LLM Applications.",
 };
 
 export default function ToolsPage() {
@@ -16,7 +16,7 @@ export default function ToolsPage() {
           <span className="text-primary">// </span>Tools
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          {tools.length} open-source tools across all OWASP LLM categories
+          {tools.length} open-source tools across the ten LLM Top 10 categories
         </p>
       </div>
       {tools.length === 0 ? (

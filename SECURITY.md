@@ -18,7 +18,7 @@ This repository is a **static educational resource**. It does not run backend se
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Instead, use [GitHub Security Advisories](https://github.com/anandsureshworks/owasp-llm-top10/security/advisories/new) to report privately.
+Instead, use [GitHub Security Advisories](https://github.com/anandsureshworks/llm-top10-lab/security/advisories/new) to report privately.
 
 Include:
 1. Description of the vulnerability

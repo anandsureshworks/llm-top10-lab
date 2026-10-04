@@ -4,7 +4,7 @@ import { DemoCard } from "@/components/content/DemoCard";
 
 export const metadata: Metadata = {
   title: "Demos",
-  description: "Interactive demos covering all OWASP LLM Top 10 vulnerability categories.",
+  description: "Interactive demos for each category of the OWASP Top 10 for LLM Applications.",
 };
 
 export default function DemosPage() {
@@ -16,7 +16,7 @@ export default function DemosPage() {
           <span className="text-primary">// </span>Demos
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          {demos.length} interactive demos across all OWASP LLM categories
+          {demos.length} interactive demos across the ten LLM Top 10 categories
         </p>
       </div>
       {demos.length === 0 ? (

@@ -70,12 +70,12 @@ export function ToolCard({
           ))}
           <Badge
             variant="outline"
-            className="rounded font-mono text-[10px] text-muted-foreground"
+            className="rounded font-mono text-xs text-muted-foreground"
           >
             {TOOL_TYPE_LABELS[toolType]}
           </Badge>
           <span
-            className={`ml-auto inline-flex shrink-0 items-center rounded border font-mono px-1.5 py-0.5 text-[10px] font-medium capitalize ${STATUS_CLASSES[status]}`}
+            className={`ml-auto inline-flex shrink-0 items-center rounded border font-mono px-1.5 py-0.5 text-xs font-medium capitalize ${STATUS_CLASSES[status]}`}
           >
             {status}
           </span>
@@ -103,7 +103,7 @@ export function ToolCard({
               href={projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 font-mono text-[10px] text-muted-foreground transition-colors hover:text-primary"
+              className="flex items-center gap-1 font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
             >
               <ExternalLink className="size-3" aria-hidden="true" />
               Project
@@ -114,7 +114,7 @@ export function ToolCard({
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 font-mono text-[10px] text-muted-foreground transition-colors hover:text-primary"
+              className="flex items-center gap-1 font-mono text-xs text-muted-foreground transition-colors hover:text-primary"
             >
               <Github className="size-3" aria-hidden="true" />
               GitHub

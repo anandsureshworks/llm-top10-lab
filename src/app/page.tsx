@@ -13,7 +13,7 @@ export default function HomePage() {
       <HeroSection />
       <StatsBar
         writeups={stats.writeups}
-        labs={stats.labs}
+        exercises={stats.exercises}
         demos={stats.demos}
         tools={stats.tools}
         total={stats.total}

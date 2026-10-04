@@ -9,8 +9,6 @@ import { MDXContent } from "@/components/mdx/MDXContent";
 import { formatDate } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Anchor } from "lucide-react";
-import { SignalsBeacon } from "@/components/feedback/SignalsBeacon";
-import { FeedbackWidget } from "@/components/feedback/FeedbackWidget";
 
 interface PageProps {
   params: Promise<{ slug: string[] }>;
@@ -31,22 +29,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 const DIFFICULTY_COLORS: Record<string, string> = {
-  beginner: "bg-green-950/40 text-green-400 border-green-800/50",
-  intermediate: "bg-yellow-950/40 text-yellow-400 border-yellow-800/50",
-  advanced: "bg-red-950/40 text-red-400 border-red-800/50",
+  beginner: "bg-green-100 text-green-800 border-green-300 dark:bg-green-950/40 dark:text-green-400 dark:border-green-800/50",
+  intermediate: "bg-yellow-100 text-yellow-800 border-yellow-300 dark:bg-yellow-950/40 dark:text-yellow-400 dark:border-yellow-800/50",
+  advanced: "bg-red-100 text-red-800 border-red-300 dark:bg-red-950/40 dark:text-red-400 dark:border-red-800/50",
 };
 
 const SEVERITY_COLORS: Record<string, string> = {
-  low: "bg-blue-950/40 text-blue-400 border-blue-800/50",
-  medium: "bg-yellow-950/40 text-yellow-400 border-yellow-800/50",
-  high: "bg-orange-950/40 text-orange-400 border-orange-800/50",
-  critical: "bg-red-950/40 text-red-400 border-red-800/50",
+  low: "bg-blue-100 text-blue-800 border-blue-300 dark:bg-blue-950/40 dark:text-blue-400 dark:border-blue-800/50",
+  medium: "bg-yellow-100 text-yellow-800 border-yellow-300 dark:bg-yellow-950/40 dark:text-yellow-400 dark:border-yellow-800/50",
+  high: "bg-orange-100 text-orange-800 border-orange-300 dark:bg-orange-950/40 dark:text-orange-400 dark:border-orange-800/50",
+  critical: "bg-red-100 text-red-800 border-red-300 dark:bg-red-950/40 dark:text-red-400 dark:border-red-800/50",
 };
 
+// Rendered only when an entry explicitly declares reviewStatus, so the default
+// (undeclared) no longer shouts "Draft — unreviewed" across the library.
 const REVIEW_STATUS: Record<string, { label: string; className: string }> = {
   draft: { label: "Draft — unreviewed", className: "bg-muted/50 text-muted-foreground border-border" },
-  reviewed: { label: "Reviewed", className: "bg-sky-950/40 text-sky-400 border-sky-800/50" },
-  verified: { label: "Verified", className: "bg-green-950/40 text-green-400 border-green-800/50" },
+  reviewed: { label: "Reviewed", className: "bg-sky-100 text-sky-800 border-sky-300 dark:bg-sky-950/40 dark:text-sky-400 dark:border-sky-800/50" },
+  verified: { label: "Verified", className: "bg-green-100 text-green-800 border-green-300 dark:bg-green-950/40 dark:text-green-400 dark:border-green-800/50" },
 };
 
 const REFERENCE_LABELS: Record<string, string> = {
@@ -98,9 +98,11 @@ export default async function WriteupPage({ params }: PageProps) {
             <span className="rounded border border-border px-2 py-0.5 font-mono text-xs text-muted-foreground">
               OWASP {writeup.owaspVersion}
             </span>
-            <span className={`rounded border px-2 py-0.5 font-mono text-xs ${REVIEW_STATUS[writeup.reviewStatus].className}`}>
-              {REVIEW_STATUS[writeup.reviewStatus].label}
-            </span>
+            {writeup.reviewStatus && REVIEW_STATUS[writeup.reviewStatus] && (
+              <span className={`rounded border px-2 py-0.5 font-mono text-xs ${REVIEW_STATUS[writeup.reviewStatus].className}`}>
+                {REVIEW_STATUS[writeup.reviewStatus].label}
+              </span>
+            )}
           </div>
 
           <h1 className="mb-2 font-mono text-2xl font-bold text-foreground lg:text-3xl">
@@ -176,17 +178,12 @@ export default async function WriteupPage({ params }: PageProps) {
           </section>
         )}
 
-        <FeedbackWidget slug={writeup.slug} />
-        <SignalsBeacon slug={writeup.slug} />
       </article>
 
       {/* Sidebar ToC */}
       {writeup.toc.length > 0 && (
         <aside className="hidden w-56 shrink-0 xl:block">
           <div className="sticky top-20">
-            <p className="mb-3 font-mono text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-              On this page
-            </p>
             <TableOfContents toc={writeup.toc} />
           </div>
         </aside>

@@ -25,9 +25,9 @@ const reference = s.object({
     .default("article"),
 });
 
-// Provenance of human review. The project bars unreviewed security content;
-// `reviewStatus` makes that contract machine-checkable, not a convention.
-const reviewStatus = s.enum(["draft", "reviewed", "verified"]).default("draft");
+// Provenance of human review. Optional on purpose: the badge renders only when
+// an entry declares its status, so an undeclared entry is silent, not "draft".
+const reviewStatus = s.enum(["draft", "reviewed", "verified"]).optional();
 
 // Shared base fields
 const baseFields = {
@@ -37,7 +37,7 @@ const baseFields = {
   owaspCategory,
   owaspVersion,
   tags: s.array(s.string()).default([]),
-  author: s.string().default("Community"),
+  author: s.string().default("Anand Suresh"),
   reviewedBy: s.string().optional(),
   reviewStatus,
   references: s.array(reference).default([]),
@@ -59,16 +59,16 @@ const writeups = defineCollection({
     keyTakeaway: s.string().max(500).optional(),
     cvssScore: s.number().min(0).max(10).optional(),
     cvssVector: s.string().optional(),
-    relatedLabs: s.array(s.string()).default([]),
+    relatedExercises: s.array(s.string()).default([]),
     relatedDemos: s.array(s.string()).default([]),
     relatedTools: s.array(s.string()).default([]),
     toc: s.toc(),
   }),
 });
 
-const labs = defineCollection({
-  name: "Lab",
-  pattern: "labs/**/*.mdx",
+const exercises = defineCollection({
+  name: "Exercise",
+  pattern: "exercises/**/*.mdx",
   schema: s.object({
     ...baseFields,
     difficulty,
@@ -121,7 +121,7 @@ export default defineConfig({
     name: "[name]-[hash:6].[ext]",
     clean: true,
   },
-  collections: { writeups, labs, demos, tools },
+  collections: { writeups, exercises, demos, tools },
   mdx: {
     rehypePlugins: [
       rehypeSlug,

@@ -6,20 +6,22 @@ difficulty: beginner
 challengeType: guided
 sandboxType: none
 timeEstimate: "30 min"
-points: 100
 hasSolution: true
 tags: ["sponge-attack", "token-flooding", "guided", "DoS"]
-author: "Community"
-publishedAt: "2024-03-01"
+author: "Anand Suresh"
+publishedAt: "2026-03-01"
 relatedWriteups: []
+updatedAt: "2026-10-04"
 ---
+**Setup:** bring your own model — an OpenAI API key or a local Ollama model works.
+
 
 ## Lab Overview
 
-In this lab, you will craft prompts that cause an LLM to generate the maximum possible output for a given input length. This simulates the attacker side of an unbounded consumption attack — understanding the mechanics helps developers build effective defenses.
+In this exercise, you will craft prompts that cause an LLM to generate the maximum possible output for a given input length. This simulates the attacker side of an unbounded consumption attack — understanding the mechanics helps developers build effective defenses.
 
 <Callout type="info">
-This lab uses a locally-simulated LLM environment. No real API costs are incurred. The techniques you learn here apply equally to real API-backed deployments.
+Run this against a model you control; use a local model to avoid API costs. The techniques apply equally to real API-backed deployments.
 </Callout>
 
 ## The Economics of Token Flooding

@@ -5,7 +5,7 @@ Brief description of what this PR adds or changes.
 ## Type of Change
 
 - [ ] New write-up
-- [ ] New lab
+- [ ] New exercise
 - [ ] New demo
 - [ ] New tool entry
 - [ ] Bug fix / correction to existing content
@@ -22,8 +22,8 @@ Brief description of what this PR adds or changes.
 - [ ] No credentials, API keys, tokens, or PII included
 - [ ] Content is educational/defensive — no live exploits against production systems
 - [ ] Links are valid and point to real resources
-- [ ] Labs with solutions use the `<Spoiler>` component
-- [ ] CTF labs include a `<Flag>` component with the flag value
+- [ ] Exercises with solutions use the `<Spoiler>` component
+- [ ] CTF exercises with a verifiable answer include a `<Flag>` component with the flag value
 - [ ] I have read the [CONTRIBUTING.md](../CONTRIBUTING.md) guide
 
 ## Screenshots (if UI changes)

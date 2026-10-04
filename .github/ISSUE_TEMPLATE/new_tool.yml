@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Thanks for submitting a tool entry! This form adds a tool to the
-        community tools directory. Tools must be relevant to LLM security.
+        tools directory. Tools must be relevant to LLM security.
         Read [CONTRIBUTING.md](../CONTRIBUTING.md) before submitting.
 
   - type: input
@@ -26,15 +26,15 @@ body:
       description: Select all OWASP LLM Top 10 categories this tool addresses.
       options:
         - label: "LLM01 - Prompt Injection"
-        - label: "LLM02 - Insecure Output Handling"
-        - label: "LLM03 - Training Data Poisoning"
-        - label: "LLM04 - Model Denial of Service"
-        - label: "LLM05 - Supply Chain Vulnerabilities"
-        - label: "LLM06 - Sensitive Information Disclosure"
-        - label: "LLM07 - Insecure Plugin Design"
-        - label: "LLM08 - Excessive Agency"
-        - label: "LLM09 - Overreliance"
-        - label: "LLM10 - Model Theft"
+        - label: "LLM02 - Sensitive Information Disclosure"
+        - label: "LLM03 - Supply Chain"
+        - label: "LLM04 - Data and Model Poisoning"
+        - label: "LLM05 - Improper Output Handling"
+        - label: "LLM06 - Excessive Agency"
+        - label: "LLM07 - System Prompt Leakage"
+        - label: "LLM08 - Vector and Embedding Weaknesses"
+        - label: "LLM09 - Misinformation"
+        - label: "LLM10 - Unbounded Consumption"
 
   - type: dropdown
     id: tool-type

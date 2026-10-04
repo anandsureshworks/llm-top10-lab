@@ -34,7 +34,7 @@ function TocLink({
       <a
         href={item.url}
         className={cn(
-          "block py-0.5 font-mono text-xs leading-relaxed transition-colors hover:text-primary",
+          "block py-1 font-mono text-sm leading-relaxed transition-colors hover:text-primary",
           isActive
             ? "border-l-2 border-primary pl-2 text-primary"
             : "text-muted-foreground pl-2"

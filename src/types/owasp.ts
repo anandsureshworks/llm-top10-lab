@@ -7,4 +7,4 @@ export type OwaspCategory = (typeof OWASP_CATEGORIES)[number];
 
 export type Difficulty = "beginner" | "intermediate" | "advanced";
 export type Severity = "low" | "medium" | "high" | "critical";
-export type ContentType = "writeup" | "lab" | "demo" | "tool";
+export type ContentType = "writeup" | "exercise" | "demo" | "tool";

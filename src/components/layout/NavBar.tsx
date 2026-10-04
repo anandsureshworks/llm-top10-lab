@@ -13,18 +13,17 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
+import { site } from "@/lib/site";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Categories", href: "/categories" },
   { label: "Write-ups", href: "/writeups" },
-  { label: "Labs", href: "/labs" },
+  { label: "Exercises", href: "/exercises" },
   { label: "Demos", href: "/demos" },
   { label: "Tools", href: "/tools" },
   { label: "Contribute", href: "/contribute" },
 ] as const;
-
-const GITHUB_URL = "https://github.com/owasp/www-project-top-10-for-large-language-model-applications";
 
 function NavLink({
   href,
@@ -43,7 +42,7 @@ function NavLink({
       href={href}
       onClick={onClick}
       className={cn(
-        "text-sm transition-colors hover:text-primary",
+        "inline-flex min-h-11 items-center rounded-sm px-1 text-sm transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         isActive ? "text-primary" : "text-muted-foreground"
       )}
     >
@@ -62,11 +61,11 @@ export function NavBar() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 font-mono text-sm font-semibold text-primary"
+          className="flex min-h-11 items-center gap-2 rounded-sm font-mono text-sm font-semibold text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/brand/as-logo.svg" alt="" width={28} height={28} className="size-7 shrink-0" />
-          <span>OWASP LLM Top 10</span>
+          <span>{site.name}</span>
         </Link>
 
         {/* Desktop nav */}
@@ -80,11 +79,11 @@ export function NavBar() {
         <div className="hidden items-center gap-4 md:flex">
           <ThemeToggle />
           <a
-            href={GITHUB_URL}
+            href={site.repo}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View on GitHub"
-            className="text-muted-foreground transition-colors hover:text-primary"
+            className="inline-flex size-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Github className="size-5" aria-hidden="true" />
           </a>
@@ -98,7 +97,7 @@ export function NavBar() {
           <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
             aria-label="Open navigation menu"
-            className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground transition-colors hover:text-primary md:hidden"
+            className="inline-flex items-center justify-center size-11 rounded-md text-muted-foreground transition-colors hover:text-primary md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Menu className="size-5" aria-hidden="true" />
           </SheetTrigger>
@@ -112,7 +111,7 @@ export function NavBar() {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/brand/as-logo.svg" alt="" width={28} height={28} className="size-7 shrink-0" />
-                  <span>OWASP LLM Top 10</span>
+                  <span>{site.name}</span>
                 </Link>
               </SheetTitle>
             </SheetHeader>
@@ -127,7 +126,7 @@ export function NavBar() {
               ))}
               <div className="mt-4 border-t border-border pt-4">
                 <a
-                  href={GITHUB_URL}
+                  href={site.repo}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"

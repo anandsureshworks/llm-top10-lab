@@ -1,8 +1,8 @@
-import { writeups, labs, demos, tools } from "#site/content";
+import { writeups, exercises, demos, tools } from "#site/content";
 import type { OwaspCategory } from "@/types/owasp";
 
 // Re-export typed collections
-export type { writeups as Writeups, labs as Labs, demos as Demos, tools as Tools };
+export type { writeups as Writeups, exercises as Exercises, demos as Demos, tools as Tools };
 
 // --- Writeups ---
 export function getAllWriteups() {
@@ -19,18 +19,18 @@ export function getWriteupsByCategory(category: OwaspCategory) {
     .sort(sortByDate);
 }
 
-// --- Labs ---
-export function getAllLabs() {
-  return labs.filter((l) => !l.draft).sort(sortByDate);
+// --- Exercises ---
+export function getAllExercises() {
+  return exercises.filter((e) => !e.draft).sort(sortByDate);
 }
 
-export function getLabBySlug(slug: string) {
-  return labs.find((l) => l.slug === slug && !l.draft);
+export function getExerciseBySlug(slug: string) {
+  return exercises.find((e) => e.slug === slug && !e.draft);
 }
 
-export function getLabsByCategory(category: OwaspCategory) {
-  return labs
-    .filter((l) => !l.draft && l.owaspCategory === category)
+export function getExercisesByCategory(category: OwaspCategory) {
+  return exercises
+    .filter((e) => !e.draft && e.owaspCategory === category)
     .sort(sortByDate);
 }
 
@@ -68,12 +68,12 @@ export function getToolsByCategory(category: OwaspCategory) {
 export function getContentStats() {
   return {
     writeups: getAllWriteups().length,
-    labs: getAllLabs().length,
+    exercises: getAllExercises().length,
     demos: getAllDemos().length,
     tools: getAllTools().length,
     total:
       getAllWriteups().length +
-      getAllLabs().length +
+      getAllExercises().length +
       getAllDemos().length +
       getAllTools().length,
   };
@@ -87,7 +87,7 @@ function sortByDate<T extends { publishedAt: string }>(a: T, b: T): number {
 export function getRecentContent(limit = 6) {
   const all = [
     ...getAllWriteups().map((w) => ({ ...w, type: "writeup" as const })),
-    ...getAllLabs().map((l) => ({ ...l, type: "lab" as const })),
+    ...getAllExercises().map((e) => ({ ...e, type: "exercise" as const })),
     ...getAllDemos().map((d) => ({ ...d, type: "demo" as const })),
     ...getAllTools().map((t) => ({ ...t, type: "tool" as const })),
   ].sort(sortByDate);

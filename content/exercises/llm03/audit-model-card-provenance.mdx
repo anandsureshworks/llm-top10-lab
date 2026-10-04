@@ -6,22 +6,24 @@ difficulty: beginner
 challengeType: guided
 sandboxType: none
 timeEstimate: "30 min"
-points: 100
 hasSolution: true
 tags: ["model-card", "provenance", "audit", "supply-chain"]
-author: "Community"
-publishedAt: "2024-01-25"
+author: "Anand Suresh"
+publishedAt: "2026-03-01"
 relatedWriteups: []
+updatedAt: "2026-10-04"
 ---
+**Setup:** bring your own model — an OpenAI API key or a local Ollama model works.
+
 
 ## Introduction
 
 A model card is the primary documentation artifact for a machine learning model. Well-written model cards, following the Hugging Face or Mitchell et al. (2019) format, describe training data, intended use, limitations, evaluation results, and responsible AI considerations. They are also the first and often only document a practitioner reads before trusting a model with production workloads.
 
-In this lab, you will analyze a realistic but fictional model card that contains several deliberate red flags indicative of supply chain risk. Your task is to identify each red flag, explain why it is concerning, and recommend what additional verification steps should be taken before using this model.
+In this exercise, you will analyze a realistic but fictional model card that contains several deliberate red flags indicative of supply chain risk. Your task is to identify each red flag, explain why it is concerning, and recommend what additional verification steps should be taken before using this model.
 
 <Callout type="info">
-This model card is fictional and was constructed specifically for this lab. All names, organizations, and URLs are invented. The red flags it contains are based on patterns observed in real-world model registry abuse cases documented by security researchers.
+This model card is fictional and was constructed specifically for this exercise. All names, organizations, and URLs are invented. The red flags it contains are based on patterns observed in real-world model registry abuse cases documented by security researchers.
 </Callout>
 
 ## The Model Card Under Review
