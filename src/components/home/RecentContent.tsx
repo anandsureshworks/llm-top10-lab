@@ -2,10 +2,11 @@ import Link from "next/link";
 import type { LucideProps } from "lucide-react";
 import { FileText, FlaskConical, Play, Wrench } from "lucide-react";
 import { CATEGORY_MAP } from "@/lib/categories";
-import { cn } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
+import { contentHref } from "@/lib/content-href";
 import type { OwaspCategory } from "@/types/owasp";
 
-type ContentType = "writeup" | "lab" | "demo" | "tool";
+type ContentType = "writeup" | "exercise" | "demo" | "tool";
 
 interface RecentItem {
   slug: string;
@@ -21,38 +22,36 @@ interface RecentContentProps {
   items: RecentItem[];
 }
 
+const exerciseConfig = {
+  label: "Exercise",
+  icon: FlaskConical,
+  badgeClass:
+    "bg-green-100 text-green-800 border-green-300 dark:bg-green-950/50 dark:text-green-400 dark:border-green-800/50",
+};
+
 const typeConfig: Record<
   ContentType,
   {
     label: string;
-    href: (slug: string) => string;
     icon: React.ComponentType<LucideProps>;
     badgeClass: string;
   }
 > = {
   writeup: {
     label: "Write-up",
-    href: (slug) => `/writeups/${slug}`,
     icon: FileText,
-    badgeClass: "bg-blue-950/50 text-blue-400 border-blue-800/50",
+    badgeClass: "bg-blue-100 text-blue-800 border-blue-300 dark:bg-blue-950/50 dark:text-blue-400 dark:border-blue-800/50",
   },
-  lab: {
-    label: "Lab",
-    href: (slug) => `/labs/${slug}`,
-    icon: FlaskConical,
-    badgeClass: "bg-green-950/50 text-green-400 border-green-800/50",
-  },
+  exercise: exerciseConfig,
   demo: {
     label: "Demo",
-    href: (slug) => `/demos/${slug}`,
     icon: Play,
-    badgeClass: "bg-purple-950/50 text-purple-400 border-purple-800/50",
+    badgeClass: "bg-purple-100 text-purple-800 border-purple-300 dark:bg-purple-950/50 dark:text-purple-400 dark:border-purple-800/50",
   },
   tool: {
     label: "Tool",
-    href: (slug) => `/tools/${slug}`,
     icon: Wrench,
-    badgeClass: "bg-orange-950/50 text-orange-400 border-orange-800/50",
+    badgeClass: "bg-orange-100 text-orange-800 border-orange-300 dark:bg-orange-950/50 dark:text-orange-400 dark:border-orange-800/50",
   },
 };
 
@@ -60,11 +59,7 @@ function RecentCard({ item }: { item: RecentItem }) {
   const config = typeConfig[item.type];
   const Icon = config.icon;
   const category = CATEGORY_MAP[item.owaspCategory];
-  const date = new Date(item.publishedAt).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
+  const date = formatDate(item.publishedAt);
 
   return (
     <article className="group flex flex-col gap-3 rounded-lg border border-border bg-card p-4 transition-colors hover:border-primary/40 hover:bg-card/80">
@@ -89,7 +84,7 @@ function RecentCard({ item }: { item: RecentItem }) {
       <div className="flex-1">
         <h3 className="mb-1 font-mono text-sm font-semibold text-foreground group-hover:text-primary">
           <Link
-            href={config.href(item.slug)}
+            href={contentHref(item.slug)}
             className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1"
           >
             {item.title}
@@ -102,7 +97,7 @@ function RecentCard({ item }: { item: RecentItem }) {
 
       <time
         dateTime={item.publishedAt}
-        className="font-mono text-xs text-muted-foreground/60"
+        className="font-mono text-sm text-muted-foreground"
       >
         {date}
       </time>

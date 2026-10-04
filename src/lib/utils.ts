@@ -6,7 +6,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatDate(dateString: string): string {
+  // Date-only strings ("2026-03-01") parse as UTC midnight; format in UTC too so
+  // the build machine's timezone cannot shift the day.
   return new Date(dateString).toLocaleDateString("en-US", {
+    timeZone: "UTC",
     year: "numeric",
     month: "short",
     day: "numeric",

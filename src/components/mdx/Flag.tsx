@@ -35,11 +35,11 @@ export function Flag({ value, hint }: FlagProps) {
   }
 
   return (
-    <div className="my-6 overflow-hidden rounded-lg border border-purple-800/50 bg-purple-950/20">
+    <div className="my-6 overflow-hidden rounded-lg border border-purple-300 bg-purple-50 dark:border-purple-800/50 dark:bg-purple-950/20">
       {/* Header */}
-      <div className="flex items-center gap-2 border-b border-purple-800/30 bg-purple-950/30 px-4 py-2">
-        <FlagIcon className="size-3.5 text-purple-400" aria-hidden="true" />
-        <span className="text-xs font-semibold uppercase tracking-widest text-purple-400">
+      <div className="flex items-center gap-2 border-b border-purple-300 bg-purple-100 dark:border-purple-800/30 dark:bg-purple-950/30 px-4 py-2">
+        <FlagIcon className="size-3.5 text-purple-700 dark:text-purple-400" aria-hidden="true" />
+        <span className="text-xs font-semibold uppercase tracking-widest text-purple-800 dark:text-purple-400">
           CTF Flag
         </span>
       </div>
@@ -48,8 +48,8 @@ export function Flag({ value, hint }: FlagProps) {
       <div className="flex items-center gap-2 p-4">
         <code
           className={cn(
-            "flex-1 overflow-x-auto rounded bg-black/40 px-3 py-2",
-            "font-mono text-sm text-purple-300 whitespace-nowrap"
+            "flex-1 overflow-x-auto rounded bg-purple-100 dark:bg-black/40 px-3 py-2",
+            "font-mono text-sm text-purple-900 dark:text-purple-300 whitespace-nowrap"
           )}
           aria-label="CTF flag value"
         >
@@ -64,8 +64,8 @@ export function Flag({ value, hint }: FlagProps) {
             "flex shrink-0 items-center gap-1.5 rounded-md border px-3 py-2 text-xs font-medium transition-all",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-1",
             copied
-              ? "border-green-700/50 bg-green-950/30 text-green-400"
-              : "border-purple-700/50 bg-purple-950/30 text-purple-400 hover:bg-purple-900/30"
+              ? "border-green-600 bg-green-100 text-green-800 dark:border-green-700/50 dark:bg-green-950/30 dark:text-green-400"
+              : "border-purple-400 bg-purple-100 text-purple-800 hover:bg-purple-200 dark:border-purple-700/50 dark:bg-purple-950/30 dark:text-purple-400 dark:hover:bg-purple-900/30"
           )}
         >
           {copied ? (
@@ -84,7 +84,7 @@ export function Flag({ value, hint }: FlagProps) {
 
       {/* Hint section */}
       {hint && (
-        <div className="border-t border-purple-800/30 px-4 pb-4">
+        <div className="border-t border-purple-300 dark:border-purple-800/30 px-4 pb-4">
           <button
             type="button"
             onClick={() => setHintVisible((prev) => !prev)}
@@ -92,7 +92,7 @@ export function Flag({ value, hint }: FlagProps) {
             aria-controls="flag-hint"
             className={cn(
               "mt-2 flex items-center gap-1.5 text-xs text-muted-foreground transition-colors",
-              "hover:text-purple-400 focus-visible:outline-none focus-visible:underline"
+              "hover:text-purple-700 dark:hover:text-purple-400 focus-visible:outline-none focus-visible:underline"
             )}
           >
             <HelpCircle className="size-3.5" aria-hidden="true" />

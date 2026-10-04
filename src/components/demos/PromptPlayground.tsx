@@ -85,7 +85,7 @@ export function PromptPlayground({
 
   return (
     <div
-      className="my-6 overflow-hidden rounded-lg border border-border bg-[oklch(0.10_0_0)] font-mono text-sm"
+      className="dark my-6 overflow-hidden rounded-lg border border-border bg-[oklch(0.10_0_0)] font-mono text-sm text-foreground"
       role="region"
       aria-label={title}
     >
@@ -95,7 +95,7 @@ export function PromptPlayground({
         <span className="text-xs font-semibold tracking-wide text-primary">
           {title}
         </span>
-        <span className="ml-2 rounded border border-yellow-700/50 bg-yellow-950/30 px-1.5 py-0.5 text-[10px] font-medium text-yellow-400">
+        <span className="ml-2 rounded border border-yellow-700/50 bg-yellow-950/30 px-1.5 py-0.5 text-xs font-medium text-yellow-400">
           STATIC DEMO
         </span>
         {outputs.length > 0 && (
@@ -118,7 +118,7 @@ export function PromptPlayground({
             <label className="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               <Lock className="size-3.5 text-yellow-500" aria-hidden="true" />
               System Prompt
-              <span className="text-[10px] text-yellow-600">(locked)</span>
+              <span className="text-xs text-yellow-600">(locked)</span>
             </label>
             <div
               aria-label="System prompt content"
@@ -199,7 +199,7 @@ export function PromptPlayground({
             className="mb-1.5 block text-xs font-medium text-muted-foreground"
           >
             User Message
-            <span className="ml-2 text-[10px] text-muted-foreground/60">
+            <span className="ml-2 text-xs text-muted-foreground/60">
               Cmd/Ctrl + Enter to send
             </span>
           </label>
@@ -254,7 +254,7 @@ export function PromptPlayground({
             >
               {outputs.map((entry) => (
                 <div key={entry.id} className="space-y-2">
-                  <div className="flex items-center gap-2 text-[10px] text-muted-foreground/60">
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground/60">
                     <span className="text-primary/60">$</span>
                     <span>{entry.timestamp}</span>
                     <span>— prompt simulation #{entry.id}</span>
@@ -264,7 +264,7 @@ export function PromptPlayground({
                   <div className="rounded border border-border/50 bg-[oklch(0.10_0_0)] p-3 space-y-3">
                     {entry.systemPrompt && (
                       <div>
-                        <p className="mb-1 text-[10px] uppercase tracking-widest text-yellow-500/70">
+                        <p className="mb-1 text-xs uppercase tracking-widest text-yellow-500/70">
                           [SYSTEM]
                         </p>
                         <p className="whitespace-pre-wrap text-xs text-yellow-300/60">
@@ -273,7 +273,7 @@ export function PromptPlayground({
                       </div>
                     )}
                     <div>
-                      <p className="mb-1 text-[10px] uppercase tracking-widest text-primary/70">
+                      <p className="mb-1 text-xs uppercase tracking-widest text-primary/70">
                         [USER]
                       </p>
                       <p className="whitespace-pre-wrap text-xs text-foreground/80">
@@ -288,7 +288,7 @@ export function PromptPlayground({
                       className="size-3 shrink-0 text-orange-500"
                       aria-hidden="true"
                     />
-                    <p className="text-[10px] text-orange-400/80">
+                    <p className="text-xs text-orange-400/80">
                       Static demo — no real API call was made. The combined
                       prompt above shows what would be sent.
                     </p>

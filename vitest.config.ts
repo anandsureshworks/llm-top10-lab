@@ -5,7 +5,11 @@ import { fileURLToPath } from "node:url";
 // Node environment — no jsdom needed; component/content tests would add it later.
 export default defineConfig({
   resolve: {
-    alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) },
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      // Velite output (run `npx velite build` first; CI does).
+      "#site/content": fileURLToPath(new URL("./.velite/index.js", import.meta.url)),
+    },
   },
   test: {
     environment: "node",
